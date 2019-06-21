@@ -62,7 +62,7 @@ export default new Vuex.Store({
         .catch(error => {
           if (error.response) {
             if (error.response.status === 401) {
-              alert(error.response.data.message)
+              alert(error.response.data.error)
               return
             }
           }
@@ -91,6 +91,16 @@ export default new Vuex.Store({
           if (error.response) {
             if (error.response.status === 409) {
               alert(error.response.data.message)
+              return
+            }
+
+            if (error.response.data.errors) {
+              let errors = error.response.data.errors
+              let message = ''
+              Object.keys(errors).forEach(function (key) {
+                message += key + ': ' + errors[key] + '\n'
+              })
+              alert(message)
               return
             }
           }
