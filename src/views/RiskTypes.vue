@@ -47,17 +47,11 @@
                     <v-card color="white darken-2" class="blue-grey--text">
                         <v-card-title primary-title>
                             <div class="text-lg-left">
-                                <a
-                                    class="risk-type"
-                                    :href="
-                                        `/risk-types/` + riskType.id + `/risks`
-                                    "
-                                    :id="riskType.id"
-                                >
+                                <router-link class="risk-type" :to="`/risk-types/` + riskType.id + `/risks`">
                                     <div class="headline font-weight-bold">
                                         {{ riskType.name }}
                                     </div>
-                                </a>
+                                </router-link>
                                 <span class="grey--text"
                                     >{{ riskType.risksCount }} Risks
                                     Created</span
